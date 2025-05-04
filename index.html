@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виктория Сафина - Web-дизайнер</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;700&family=Encode+Sans+Semi+Condensed:wght@600&family=Inter:wght@400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            font-family: 'Inter', sans-serif;
+            background: #F6F6F6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Основные секции */
+        .main-section {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            background: #F6F6F6;
+        }
+        
+        .about-section {
+            width: 100%;
+            height: 750px;
+            position: relative;
+            background: #F6F6F6;
+        }
+        
+        /* Контейнеры */
+        .container {
+            max-width: 1500px;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Главная секция */
+        .name {
+            left: 100px;
+            top: 250px;
+            position: absolute;
+            color: black;
+            font-size: 64px;
+            font-family: 'Encode Sans Semi Condensed', sans-serif;
+            font-weight: 600;
+            line-height: 125px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .title {
+            left: 103px;
+            top: 369px;
+            position: absolute;
+            color: #4D4D4D;
+            font-size: 20px;
+            font-weight: 400;
+            animation: fadeIn 1.2s ease-out;
+        }
+        
+        .web {
+            left: 257px;
+            top: 356px;
+            position: absolute;
+            color: #B35770;
+            font-size: 20px;
+            font-weight: 400;
+            animation: fadeIn 1.4s ease-out;
+        }
+        
+        .developer {
+            left: 287px;
+            top: 373px;
+            position: absolute;
+            color: #B35770;
+            font-size: 20px;
+            font-weight: 400;
+            animation: fadeIn 1.6s ease-out;
+        }
+        
+        /* Фото и подписи */
+        .photo-container {
+            width: 585px;
+            height: 765px;
+            left: 550px;
+            top: 0;
+            position: absolute;
+            overflow: hidden;
+        }
+        
+        .main-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            animation: slideIn 1s ease-out;
+        }
+        
+        .photo-label {
+            position: absolute;
+            font-size: 18px;
+            font-weight: 400;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .marketing {
+            left: 193px;
+            top: 646px;
+            color: #EFDE9C;
+        }
+        
+        .creative {
+            left: 287px;
+            top: 668px;
+            color: black;
+        }
+        
+        /* Социальные иконки */
+        .social-icons {
+            position: absolute;
+            right: 40px;
+            top: 290px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        
+        .social-icon {
+            color: #4D4D4D;
+            font-size: 28px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .social-icon:hover {
+            color: #B35770;
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+        
+        /* Навигация */
+        .nav-item {
+            position: absolute;
+            color: black;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .nav-item:hover {
+            color: #B35770;
+            transform: translateY(-2px);
+        }
+        
+        .services {
+            left: 71px;
+            top: 41px;
+        }
+        
+        .about {
+            left: 181px;
+            top: 41px;
+        }
+        
+        .contacts {
+            left: 310px;
+            top: 40px;
+        }
+        
+        /* Кнопка заказа */
+        .order-btn {
+            width: 220px;
+            height: 60px;
+            right: 40px;
+            top: 40px;
+            position: absolute;
+            cursor: pointer;
+            z-index: 10;
+            animation: slideDown 1s ease-out;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        
+        .order-btn-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: linear-gradient(135deg, #EFDE9C 0%, #D4B87A 100%);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .order-btn-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #5A4A3A;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
+        }
+        
+        .order-btn:hover .order-btn-bg {
+            background: linear-gradient(135deg, #B35770 0%, #8F4560 100%);
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 25px rgba(179, 87, 112, 0.3);
+        }
+        
+        .order-btn:hover .order-btn-text {
+            color: white;
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.8px;
+        }
+        
+        .order-btn:active .order-btn-bg {
+            transform: translateY(1px);
+            box-shadow: 0px 2px 10px rgba(179, 87, 112, 0.4);
+        }
+        
+        /* Кнопка скролла вниз */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #B35770;
+            font-size: 24px;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        
+        /* Секция "Обо мне" */
+        .about-title {
+            left: 1102px;
+            top: 70px; /* Опущено вниз */
+            position: absolute;
+            color: #B35770;
+            font-size: 64px;
+            font-family: 'Encode Sans Condensed', sans-serif;
+            font-weight: 700;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            z-index: 3;
+        }
+        
+        .about-photo {
+            width: 482px;
+            height: 753px;
+            left: 586px;
+            top: 41px;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-text {
+            width: 321px;
+            left: 1142px;
+            top: 236px;
+            position: absolute;
+            color: black;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+            z-index: 3;
+        }
+        
+        .blur-circle {
+            width: 462px;
+            height: 432px;
+            left: 871px;
+            top: 430px;
+            position: absolute;
+            background: #EFDE9C;
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 1;
+        }
+        
+        /* Карточки */
+        .card {
+            width: 243px;
+            height: 221px;
+            position: absolute;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-dark {
+            background: #4D4D4D;
+        }
+        
+        .card-light {
+            background: #EFDE9C;
+            border: 1px solid #FFF5CD;
+        }
+        
+        /* Позиции карточек */
+        .card-portfolio {
+            left: 48px;
+            top: 207px;
+        }
+        
+        .card-stages {
+            left: 48px;
+            top: 473px;
+        }
+        
+        .card-questions {
+            left: 343px;
+            top: 473px;
+        }
+        
+        /* Кружочки в карточках */
+        .card-circle {
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            right: 15px; /* Уменьшен отступ справа */
+            top: 19px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card-light .card-circle {
+            border: 1px solid #FFF5CD;
+        }
+        
+        /* Стрелочки в кружочках */
+        .arrow-icon {
+            position: relative;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .arrow-icon::before, .arrow-icon::after {
+            content: '';
+            position: absolute;
+            background: black;
+        }
+        
+        .arrow-icon::before {
+            width: 12px;
+            height: 1px;
+            top: 50%;
+            left: 0;
+            transform: rotate(-45deg);
+            transform-origin: left center;
+        }
+        
+        .arrow-icon::after {
+            width: 12px;
+            height: 1px;
+            top: 50%;
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: left center;
+        }
+        
+        /* Текст в карточках */
+        .card-title {
+            position: absolute;
+            left: 25px; /* Увеличен отступ слева */
+            top: 24px;
+            font-family: 'Encode Sans Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .card-dark .card-title {
+            color: #EFDE9C;
+        }
+        
+        .card-light .card-title {
+            color: #4D4D4D;
+        }
+        
+        .card-text {
+            width: 190px; /* Увеличена ширина */
+            position: absolute;
+            left: 25px; /* Увеличен отступ слева */
+            top: 73px;
+            font-family: 'Encode Sans Condensed', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.3;
+        }
+        
+        .card-dark .card-text {
+            color: white;
+        }
+        
+        .card-light .card-text {
+            color: #4D4D4D;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Главная секция -->
+    <section class="main-section">
+        <div class="container">
+            <!-- Имя и заголовки -->
+            <div class="name">ВИКТОРИЯ<br/>САФИНА</div>
+            <div class="title">WEB-DESIGNER</div>
+            <div class="web">WEB</div>
+            <div class="developer">РАЗРАБОТЧИК</div>
+            
+            <!-- Фото -->
+            <div class="photo-container">
+                <img class="main-photo" src="main.png" alt="Виктория Сафина">
+                <div class="photo-label marketing">маркетинг</div>
+                <div class="photo-label creative">креатив</div>
+            </div>
+            
+            <!-- Социальные иконки с реальными ссылками -->
+            <div class="social-icons">
+                <a href="https://t.me/ssafivii" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.youtube.com/@sfvictorii" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/79191117226" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <!-- Кнопка заказа -->
+            <div class="order-btn">
+                <div class="order-btn-bg"></div>
+                <div class="order-btn-text">Сделать заказ</div>
+            </div>
+            
+            <!-- Навигация -->
+            <div class="nav-item services">Услуги</div>
+            <div class="nav-item about" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Обо мне</div>
+            <div class="nav-item contacts">Контакты</div>
+            
+            <!-- Кнопка скролла вниз -->
+            <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Обо мне" -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h1 class="about-title">ОБО МНЕ</h1>
+            
+            <!-- Фото -->
+            <div class="about-photo">
+                <img src="лист2.png" alt="Фото Виктории">
+            </div>
+            
+            <!-- Текст -->
+            <div class="about-text">
+                Здравствуйте! Меня зовут Виктория Сафина,<br/>
+                я web-дизайнер и разработчик из Москвы.<br/><br/>
+                Профессионально занимаюсь разработкой сайтов (дизайн и верстка).<br/><br/>
+                Имею специальное высшее образование направления "Информационные системы и технологии"
+            </div>
+            
+            <!-- Размытый желтый круг -->
+            <div class="blur-circle"></div>
+            
+            <!-- Карточки -->
+            <div class="card card-dark card-portfolio">
+                <div class="card-title">Портфолио</div>
+                <div class="card-text">Здесь вы можете ознакомиться с моими работами</div>
+                <div class="card-circle">
+                    <div class="arrow-icon"></div>
+                </div>
+            </div>
+            
+            <div class="card card-light card-stages">
+                <div class="card-title">Этапы работы</div>
+                <div class="card-text">Подробное описание процесса работы</div>
+                <div class="card-circle">
+                    <div class="arrow-icon"></div>
+                </div>
+            </div>
+            
+            <div class="card card-dark card-questions">
+                <div class="card-title">Вопросы</div>
+                <div class="card-text">Если возникли вопросы, можешь обращаться сюда</div>
+                <div class="card-circle">
+                    <div class="arrow-icon"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Обработчики кликов для главной страницы
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (this.classList.contains('about')) return;
+                alert('Переход к разделу: ' + this.textContent);
+            });
+        });
+        
+        document.querySelector('.order-btn').addEventListener('click', function() {
+            this.querySelector('.order-btn-bg').style.transform = 'scale(0.95)';
+            this.querySelector('.order-btn-text').textContent = 'Загрузка...';
+            
+            setTimeout(() => {
+                alert('Форма заказа открыта!');
+                this.querySelector('.order-btn-bg').style.transform = '';
+                this.querySelector('.order-btn-text').textContent = 'Сделать заказ';
+            }, 600);
+        });
+        
+        // Обработчики для карточек
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                const cardClass = this.classList[1];
+                let message = '';
+                
+                if (cardClass === 'card-portfolio') {
+                    message = 'Переход к разделу "Портфолио"';
+                } else if (cardClass === 'card-stages') {
+                    message = 'Переход к разделу "Этапы работы"';
+                } else if (cardClass === 'card-questions') {
+                    message = 'Переход к разделу "Вопросы"';
+                }
+                
+                // Анимация нажатия карточки
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                    alert(message);
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
